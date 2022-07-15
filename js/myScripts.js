@@ -14,7 +14,7 @@ function chooseWinner(playerChoice, computerChoice){
             (playerChoice === 'scissors' && computerChoice === 'scissors') 
         )
         {
-             returnString = "Its a tie, try again!";
+             returnString = "tie";
         }
 
         else if(
@@ -23,12 +23,48 @@ function chooseWinner(playerChoice, computerChoice){
         (playerChoice === 'paper' && computerChoice === 'rock')  
         )
         {
-            returnString = "You win! " + playerChoice + " beats " + computerChoice;
+            returnString = "player";
         }
 
         else{
-            returnString = "You lose! " + computerChoice + " beats " + playerChoice;
+            returnString = "computer";
         }
 
         return returnString;
+}
+
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for(let i=0;i<5;i++)
+    {
+        let playerChoice = prompt("enter rock, paper, or scissors");
+        let tester = chooseWinner(playerChoice,getComputerChoice());
+        if(tester == "computer")
+        {
+            computerScore += 1;
+        }
+
+        else if(tester === "player")
+        {
+            playerScore += 1;
+        }
+    }  
+    
+    if(playerScore > computerScore)
+    {
+        alert(`You win! ${playerScore} to ${computerScore}`);
+    }
+
+    else if(computerScore > playerScore)
+    {
+        alert(`I win! ${computerScore} to ${playerScore}`);
+    }
+
+    else
+    {
+        alert("After all of that its a tie!")
+    }
+
 }
