@@ -33,6 +33,34 @@ function chooseWinner(playerChoice, computerChoice){
         return returnString;
 }
 
+
+function clickHandler(e){
+   
+    const playerChoice = String(e.target.id);
+
+    const winner = chooseWinner(playerChoice, getComputerChoice());
+        if(winner == 'player')
+            {
+                alert("You win!")
+            }
+        else if(winner == 'computer')
+            {
+                alert("I win!") 
+            }
+        else
+            {
+                alert("Tie, try again!")
+            }
+
+}
+
+const btns = document.querySelectorAll(".btn");
+btns.forEach(btn => btn.addEventListener('click', clickHandler));
+
+
+
+
+ /*
 function game(){
     let playerScore = 0;
     let computerScore = 0;
@@ -51,6 +79,7 @@ function game(){
             playerScore += 1;
         }
     }  
+
     
     if(playerScore > computerScore)
     {
@@ -68,3 +97,4 @@ function game(){
     }
 
 }
+*/
