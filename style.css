@@ -1,6 +1,15 @@
+body{
+    background-color:black;
+}
+
 .header{
     display: flex;
-    justify-content: center;  
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color:limegreen;
+    font-size: 40pt;
+    border-color: limegreen;
+    border-style: ridge;
 }
 
 .display-results{
@@ -8,18 +17,32 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
+    font-size: 15pt;
+    font-weight: bold;
+    color: limegreen;
+    border-color: limegreen;
+    border-style: ridge;
+    border-radius: 5px;
+   
 }
 
-.player{
+.player-score{
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-color: limegreen;
+    border-style: ridge;
+    padding: 5px;
+
 }
 
-.computer{
+.computer-score{
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-color: limegreen;
+    border-style: ridge;
+    padding: 5px;
 }
 
 
@@ -28,11 +51,29 @@
     padding: 20px;
     gap: 10px;
     justify-content: center;
-     
+    margin: 20px;
+}
+
+.winner-text{
+   display:flex;
+   justify-content: center;
+   margin: 50px;
+   color: limegreen;
+   font-size: 12pt;
+   font-weight: bold;
 }
 
 button{
     width: 25%;
     padding: 20px;
     border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 14pt;
+    cursor: pointer;
+    color: limegreen;
+    font-weight: bold;
+    font-style: italic;
+    box-shadow: -3px 3px limegreen, -2px 2px limegreen, -1px 1px limegreen;
+    border: 1px solid black;
+    background-color: darkslategray;
 }
