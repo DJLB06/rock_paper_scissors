@@ -1,9 +1,12 @@
+
+//random number returns rock, paper, or scissors
 function getComputerChoice(){
     let rockPaperScissors = ['rock','paper', 'scissors'];
     let randomNumber = Math.floor(Math.random() * 3);
     return rockPaperScissors[randomNumber];
 }
 
+//takes the players choice and chooses random computer choice to pick winner. returns a string with player, computer, or tie
 function chooseWinner(playerChoice, computerChoice){
         let returnString;
         playerChoice = playerChoice.toLowerCase();
@@ -33,11 +36,13 @@ function chooseWinner(playerChoice, computerChoice){
         return returnString;
 }
 
+//global variables to keep track of score
 var playerScore = 0;
 var computerScore = 0;
 
+//gets ID from users click and calls choose winner. keeps track of score and updates DOM. once the total between the two players equals 5 the game is over and a winner is declared. resets variables.
 function clickHandler(e){
-    const playerChoice = String(e.target.id);
+const playerChoice = String(e.target.id);
    
 
 let winner = chooseWinner(playerChoice, getComputerChoice());
@@ -90,6 +95,7 @@ btns.forEach(btn => btn.addEventListener('click', clickHandler));
 const playerPoint = document.querySelector(".player-score");
 const computerPoint = document.querySelector(".computer-score");
 
+//Old function for playing game, may attempt to refactor so all code isn't in the clickHandler if possible
 /*
 function game(){
     
