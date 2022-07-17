@@ -33,68 +33,113 @@ function chooseWinner(playerChoice, computerChoice){
         return returnString;
 }
 
+var playerScore = 0;
+var computerScore = 0;
 
 function clickHandler(e){
-   
     const playerChoice = String(e.target.id);
+   
 
-    const winner = chooseWinner(playerChoice, getComputerChoice());
-        if(winner == 'player')
-            {
-                alert("You win!")
-            }
-        else if(winner == 'computer')
-            {
-                alert("I win!") 
-            }
-        else
-            {
-                alert("Tie, try again!")
-            }
+let winner = chooseWinner(playerChoice, getComputerChoice());
 
+    if(winner == 'player')
+        {
+            playerScore+=1;
+            alert("You win this round!");
+            playerPoint.innerText = playerScore;
+        }
+    else if(winner == 'computer')
+        {
+            computerScore+=1;
+            alert("I win this round!"); 
+            computerPoint.innerText = computerScore;
+        }
+    else
+        {
+            alert("Tie, try again!");
+        }
+
+if(playerScore + computerScore == 5){
+    if(playerScore > computerScore)
+        {
+            alert(`You win! ${playerScore} to ${computerScore}`);
+        }
+    
+    else if(computerScore > playerScore)
+        {
+            alert(`I win! ${computerScore} to ${playerScore}`);
+        }
+    
+    else
+        {
+            alert("After all of that its a tie!")
+        }
+    playerScore = 0;
+    computerScore = 0;
+    computerPoint.innerText = computerScore;
+    playerPoint.innerText = playerScore;
+    return;
+    }
+  
 }
+
+
 
 const btns = document.querySelectorAll(".btn");
 btns.forEach(btn => btn.addEventListener('click', clickHandler));
+const playerPoint = document.querySelector(".player-score");
+const computerPoint = document.querySelector(".computer-score");
 
-
-
-
- /*
+/*
 function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for(let i=0;i<5;i++)
-    {
-        let playerChoice = prompt("enter rock, paper, or scissors");
-        let tester = chooseWinner(playerChoice,getComputerChoice());
-        if(tester == "computer")
-        {
-            computerScore += 1;
-        }
-
-        else if(tester === "player")
-        {
-            playerScore += 1;
-        }
-    }  
-
     
-    if(playerScore > computerScore)
-    {
-        alert(`You win! ${playerScore} to ${computerScore}`);
+    console.log(playerScore);
+    console.log(computerScore);
+
+   if(playerScore + computerScore == 5){
+        if(playerScore > computerScore)
+        {
+            alert(`You win! ${playerScore} to ${computerScore}`);
+        }
+
+        else if(computerScore > playerScore)
+        {
+            alert(`I win! ${computerScore} to ${playerScore}`);
+        }
+
+        else
+        {
+            alert("After all of that its a tie!")
+        }
+    playerScore = 0;
+    computerScore = 0;
+    computerPoint.innerText = computerScore;
+    playerPoint.innerText = playerScore;
     }
 
-    else if(computerScore > playerScore)
-    {
-        alert(`I win! ${computerScore} to ${playerScore}`);
-    }
+let winner = chooseWinner(playerChoice, getComputerChoice());
 
+    if(winner == 'player')
+        {
+            playerScore+=1;
+            alert("You win!");
+            playerPoint.innerText = playerScore;
+        }
+    else if(winner == 'computer')
+        {
+            computerScore+=1;
+            alert("I win!"); 
+            computerPoint.innerText = computerScore;
+        }
     else
-    {
-        alert("After all of that its a tie!")
-    }
+        {
+            alert("Tie, try again!");
+        }
 
 }
+
+
 */
+
+
+
